@@ -2,7 +2,6 @@ import sys
 import sqlite3
 import logging
 
-
 class DbConnector(object):
 	def __init__(self,in_file):
 		self.data_file = in_file
@@ -22,17 +21,3 @@ class DbConnector(object):
 		'''Commits data'''
 		logging.debug("Doing commit.")
 		self.connection.commit()
-		
-		
-		
-		
-		
-	
-	
-	
-	
-	
-	
-	
-	
-
