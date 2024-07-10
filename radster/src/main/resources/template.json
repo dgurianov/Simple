@@ -1,0 +1,14 @@
+[
+  {
+    "country": "DE",
+    "city": "Berlin",
+    "street": "NordStrasse",
+    "houseNumber": "10/1"
+  },
+  {
+    "country": "US",
+    "city": "Atlanta",
+    "street": "Washington str.",
+    "houseNumber": "19"
+  }
+]

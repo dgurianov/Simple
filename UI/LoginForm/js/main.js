@@ -6,7 +6,17 @@ if(localStorage.getItem('loggedIn') === "true"){
 	document.getElementById('button-logout').addEventListener('click', () => {
 		document.getElementById('form-login').remove();
 		localStorage.setItem('loggedIn', false);
-		location.reload();
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+  		if (this.readyState == 4 && this.status == 200) {
+			console.log(this.response);
+    		
+  }
+};
+		
+		xhttp.open("GET", "http://localhost:8080/data/get/address", true);
+		xhttp.send();
+		// location.reload();
 	});
 
 }else{
