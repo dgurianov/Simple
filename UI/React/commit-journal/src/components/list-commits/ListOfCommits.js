@@ -3,7 +3,12 @@ import Commit from './Commit';
 
 const ListOfCommits = () => {
     return (mockData.commits.map((element)=>{
-        return <Commit key={element.id} element={element}/>;
+       
+        return(
+            <div>
+                <Commit key={element.id} element={element}/>
+                </div>
+        ) 
 
     })
 

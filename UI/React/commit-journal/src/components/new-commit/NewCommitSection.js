@@ -1,4 +1,4 @@
-
+import './NewCommitSection.css';
 
 const NewCommitSection = () => {
     return(<div  className='app-new'>

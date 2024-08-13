@@ -1,5 +1,5 @@
 
-
+import './SearchCommit.css';
 
 
 const SearchComit = () => {
