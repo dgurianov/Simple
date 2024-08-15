@@ -1,19 +1,13 @@
+import Tag from '../list-tags/Tag';
 import './Commit.css';
-import Tag from './Tag';
 
 
 const  Commit = ({element}) => {
     return (
         <div className="commit-card" key={element.id}>
             <div className="commit-card-left">
-            {/* <label>Id: {element.id}</label> */}
-            <label className="commit-card-commit-id">Commit id: {element.commitId}</label>
-            {/* <label>Username: {element.userName}</label> */}
-            {/* <label>Repository Id: {element.repoId}</label> */}
-            
-            
-            <label className="commit-card-memo-tags">{element.memoTags.map((el)=>{return <button type={'submit'}><Tag tagname={el}/></button>})}</label>
-
+                <label className="commit-card-commit-id">Commit id: {element.commitId}</label>
+                <label className="commit-card-memo-tags">{element.memoTags.map((el,index)=>{return <Tag key={index} tagname={el}/>})}</label>
             </div>
 
             <div className="commit-card-right">
@@ -28,7 +22,6 @@ const  Commit = ({element}) => {
 
     );
 }
-
 
 export default Commit;
 

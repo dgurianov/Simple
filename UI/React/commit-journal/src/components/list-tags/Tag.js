@@ -1,6 +1,7 @@
+import './Tag.css';
 const Tag = ({tagname}) => {
     return(
-        <label className="tag">+{tagname}</label>
+        <button className="tag">+{tagname}</button>
     );
 
 }

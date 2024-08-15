@@ -5,8 +5,8 @@ const ListOfCommits = () => {
     return (mockData.commits.map((element)=>{
        
         return(
-            <div>
-                <Commit key={element.id} element={element}/>
+            <div key={element.id}>
+                <Commit  element={element}/>
                 </div>
         ) 
 

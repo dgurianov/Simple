@@ -1,4 +1,6 @@
 .tag{
     display: grid;
     grid-template: 1fr / 1fr 4fr;
+    width: min-content;
+    height: min-content;
 }

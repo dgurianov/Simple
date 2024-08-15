@@ -1,8 +1,15 @@
 import { atom } from "recoil";
 
 const commitStateBucket = atom({
-    key:"commit-basket",
+    key:"commit-bucket",
     default:[]
 });
 
-export {commitStateBucket};
+const tagsStateBucket = atom(
+    {
+        key: "tags-bucket",
+        default:[""]
+    }
+);
+
+export {commitStateBucket, tagsStateBucket};

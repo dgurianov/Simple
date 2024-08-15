@@ -36,12 +36,7 @@
 } */
 
 
-.app-tags{ 
-  display: grid;
-  grid-area: tags;
-  grid-template: repeat(1, 100px) / 1fr 1fr;
-  grid-auto-rows: 100px;
-}
+
 
 
 
