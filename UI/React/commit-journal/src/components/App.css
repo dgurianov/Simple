@@ -2,8 +2,8 @@
   display: grid;
   width:95%;
   grid-template-areas:
-  "logo break s "
-  "tags break n"
+  "logo break nav "
+  "tags break n "
   "tags break li";
   text-align: center;
   row-gap: 3px;
