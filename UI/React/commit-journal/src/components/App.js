@@ -1,16 +1,16 @@
-import { useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import './App.css';
 import ListOfCommits from './list-commits/ListOfCommits';
 import NewCommitSection from './new-commit/NewCommitSection';
 import SearchCommit from './search-commit/SearchCommit';
 import { useEffect, useState } from 'react';
-import { commitStateBucket, tagsStateBucket } from '../state/cjournalState';
+import { commitStateBucket, navBarState, tagsStateBucket } from '../state/cjournalState';
 import ListOfTags from './list-tags/ListOfTags';
 import NavigationStripe from './nav/NavigationStripe';
 import AxiosClient from './backend-client/AxiosClient';
 
 function App() {
-
+const nbState = useRecoilValue(navBarState);
 const setCommitsBucket = useSetRecoilState(commitStateBucket);
 const setTagsBasket = useSetRecoilState(tagsStateBucket);
 const [fetchState, setFetchState] = useState({
@@ -63,13 +63,24 @@ const fetchData = () => {
 }
  
   return (
-    <div className='app-container'>
-      <div className='app-logo'>logo</div>
-      <div className='app-break'></div>
-      <NavigationStripe/>
-      <ListOfTags/>
-      {window.location.pathname === "/search" ? <SearchCommit/> :<NewCommitSection/>}
-      <ListOfCommits/>
+    <div className='container'>
+      <div className='row'>
+        <div className='col-2'>
+          <div className='app-logo'>logo</div>
+        </div>
+        <div className='col'>
+          <NavigationStripe />
+        </div>
+      </div>
+      <div className='row'>
+        <div className='col-2'>
+          <ListOfTags/>
+         </div>
+         <div className='col '>
+            {nbState.search === "active" ? <SearchCommit/> :<NewCommitSection/>}
+            <ListOfCommits/>
+          </div>
+      </div>
     </div>
   );
 }

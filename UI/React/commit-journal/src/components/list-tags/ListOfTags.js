@@ -6,15 +6,8 @@ import { tagsStateBucket } from '../../state/cjournalState';
 
 const ListOfTags = () => {
     const tagsBasket = useRecoilValue(tagsStateBucket);
-    return(
-        <div className='tags-list'>
-            {tagsBasket.map((tag,index)=>{
-                return(<Tag key={index} tagname={tag}/>);
-            })
-            }
-        </div>
-    );
-};
+    return tagsBasket.map((tag,index)=>{ return <Tag key={index} tagname={tag}/>} );
+}
 
 
 export default ListOfTags;

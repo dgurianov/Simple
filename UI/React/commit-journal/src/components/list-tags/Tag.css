@@ -12,3 +12,12 @@
     height: min-content;
     background-color: blue;
 }
+
+
+.small-text-size{
+    font-size: 12px ;
+}
+
+.wrap-buttons{
+    flex-wrap: wrap;
+}

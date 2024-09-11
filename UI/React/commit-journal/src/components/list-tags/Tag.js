@@ -17,7 +17,7 @@ const Tag = ({tagname}) => {
     }
 
     return(
-      <button className={isPressed(tagname)? 'tag-pressed' : 'tag' } onClick={onClickTagFilter} value={tagname}>+{tagname}</button> 
+      <button className={isPressed(tagname)? 'btn btn-outline-danger btn-sm m-1 small-text-size' : 'btn btn-outline-primary btn-sm m-1 small-text-size' } onClick={onClickTagFilter} value={tagname}>+{tagname}</button> 
     );
 
 }

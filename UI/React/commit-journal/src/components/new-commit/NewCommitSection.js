@@ -74,15 +74,29 @@ const NewCommitSection = () => {
 
     }
 
-    return(
-        <form  className='app-new'>
-            <label className="app-new-line-name">Commit id</label><input  name="commitId" onChange={handleChange} type="text" className="app-new-line-input"/>
-            <label className="app-new-line-name">Username</label><input name="userName" onChange={handleChange} type="text" className="app-new-line-input"/>
-            <label className="app-new-line-name">Repository id</label><input name="repoId" onChange={handleChange} type="text" className="app-new-line-input"/>
-            <label className="app-new-line-name">Key words</label><input name="tags" onChange={handleChange} type="text" className="app-new-line-input"/>
-            <label className="app-new-line-name">Description</label><input name="descr" onChange={handleChange} type="text" className="app-new-line-input"/>
-            <button className="app-new-line-button" onClick={handleSubmit} type="submit" >Add new</button>
-        </form>
+    return(<div>
+        <div className="input-group input-group-sm mb-3 mt-3">
+                <span className="input-group-text" id="inputGroup-sizing-sm">Commit id </span>
+                <input type="text"  className="form-control"  onChange={handleChange} name="commitId" />
+        </div>
+        <div className="input-group input-group-sm mb-3">
+            <input type="text" className="form-control" placeholder="Username"  onChange={handleChange}  name="userName"/>
+            <span className="input-group-text">@</span>
+            <input type="text" className="form-control" placeholder="Repository"   onChange={handleChange} name="repoId"/>
+        </div>
+        <div className="input-group input-group-sm mb-3">
+            <span className="input-group-text">Description</span>
+            <textarea className="form-control"  onChange={handleChange} name="descr" ></textarea>
+        </div>
+        <div className="input-group input-group-sm mb-3">
+                <span className="input-group-text" id="inputGroup-sizing-sm">Tags</span>
+                <input type="text"  className="form-control"  onChange={handleChange} name="tags" />
+        </div>
+        <div className='d-flex justify-content-end '>
+            <button type='submit' className='btn btn-light btn-sm mb-3 border border-secondary' onClick={handleSubmit}>Add new</button>
+        </div>
+      </div>
+      
    );
 }
 

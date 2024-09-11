@@ -9,7 +9,7 @@ const ListOfCommits = () => {
     const [showEdit, setShowEdit] = useState(0);
 
     return (
-        <div className='app-list' >
+        <div className='container' >
             {commitsSelector.map((element)=>{
                 return(
                     <div key={element.id}>

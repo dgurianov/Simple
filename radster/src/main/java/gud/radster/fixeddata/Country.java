@@ -2,7 +2,10 @@ package gud.radster.fixeddata;
 
 public enum Country{
         DE("Germany","DE"),
-        US("United States", "US")
+        US("United States", "US"),
+        DK("Denmark", "DK"),
+        GB("Great Britain", "GB"),
+        FR("France", "FR")
     ;
 
     private String name;

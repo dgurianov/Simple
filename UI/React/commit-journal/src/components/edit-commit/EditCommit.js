@@ -1,5 +1,3 @@
-//Modal
-//https://www.youtube.com/watch?v=i8YLBufmWV4
 
 import { useRecoilState } from "recoil";
 import { commitStateBucket, tagsStateBucket } from "../../state/cjournalState";
@@ -22,9 +20,6 @@ const EditCommit = ({originalCommit,setShowEdit}) => {
 
 
     const handleSubmit = (event) => {
-        console.log(newCommit);
-        console.log("")
-        //event.preventDefault();
         if(hasChanged){
 
         const pushCommitToBackend = async () => {
@@ -54,13 +49,11 @@ const EditCommit = ({originalCommit,setShowEdit}) => {
 
     }
 
+
+    const handleCancel = () => {setShowEdit(0);}
+
     const handleChange = (event) => {
         switch(event.target.name){
-            case "commitId":
-                newCommit.commitId = event.target.value;
-                console.log("commitId");
-                setHasChanged(true);
-                break;
             case "userName":
                 newCommit.userName = event.target.value;
                 console.log("userNAme");
@@ -92,19 +85,33 @@ const EditCommit = ({originalCommit,setShowEdit}) => {
     }
 
      return(
-          <div  className='app-new'>
-            <label className="app-new-line-name">Commit id</label><input value={newCommit.commitId} name="commitId"  type="text" className="app-new-line-input"/>
-            <label className="app-new-line-name">Username</label><input value={newCommit.userName} name="userName" onChange={handleChange} type="text" className="app-new-line-input"/>
-            <label className="app-new-line-name">Repository id</label><input  value={newCommit.repoId} name="repoId" onChange={handleChange} type="text" className="app-new-line-input"/>
-           
-            <label className="app-new-line-name">Description</label><input value={newCommit.description} name="descr" onChange={handleChange} type="text" className="app-new-line-input"/>
-            <button className="app-new-line-button" onClick={handleSubmit} type="submit" >Save edit</button>
-        </div>
+        <div className="card mb-3 p-2">
+            <div className="input-group input-group-sm mb-3 mt-3">
+                    <span className="input-group-text" id="inputGroup-sizing-sm">Commit id</span>
+                    <input type="text"  className="input-group-text"  readOnly={true}   value={newCommit.commitId}/>
+            </div>
+            <div className="input-group input-group-sm mb-3">
+                <span className="input-group-text">User</span>
+                <input type="text" className="form-control" placeholder="Username"  onChange={handleChange}  name="userName" value={newCommit.userName}/>
+                <span className="input-group-text">@repo</span>
+                <input type="text" className="form-control" placeholder="Repository"   onChange={handleChange} name="repoId" value={newCommit.repoId}  />
+            </div>
+            <div className="input-group input-group-sm mb-3">
+                <span className="input-group-text">Description</span>
+                <textarea className="form-control"  onChange={handleChange} name="descr" value={newCommit.description} ></textarea>
+            </div>
+            <div className="input-group input-group-sm mb-3">
+                <span className="input-group-text" id="inputGroup-sizing-sm">Tags</span>
+                <input type="text"  className="form-control"  onChange={handleChange} name="tags" />
+            </div>
+            <div className='d-flex justify-content-center '>
+                <button type='submit' className='btn btn-light btn-sm border border-secondary' onClick={handleSubmit}>Save</button>
+                <span className="mx-1"></span>
+                <button type='submit' className='btn btn-light btn-sm border border-secondary' onClick={handleCancel}>Cancel</button>
+            </div>
+
+     </div>
      );
-
 }
-
-// <label className="app-new-line-name">Key words</label><input value={newCommit.tags} name="tags" onChange={handleChange} type="text" className="app-new-line-input"/>
-
 
 export default EditCommit;

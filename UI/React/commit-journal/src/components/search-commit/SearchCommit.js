@@ -41,10 +41,13 @@ const SearchCommit = () => {
      }
 
     return(
-        <div className="app-search">
-            <input className="app-search-input" onChange={handleChange} type="text"  ></input>
-            <button className="app-search-button"  onClick={clickSearch}  type="submit"> Search</button>
-            <div className="app-search-hr"><hr /></div>
+        <div >
+            <div className="input-group input-group-sm mb-3 mt-3">
+                <span className="input-group-text" id="inputGroup-sizing-sm">Text</span>
+                <input type="text"  className="form-control"  onChange={handleChange} name="commitId" />
+                <span className='mx-3'></span>
+                <button type='submit' className='btn btn-light btn-sm border border-secondary' onClick={clickSearch}>Search</button>
+            </div>
         </div>
     );
     

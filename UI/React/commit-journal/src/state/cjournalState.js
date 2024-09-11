@@ -8,7 +8,7 @@ const commitStateBucket = atom({
 const tagsStateBucket = atom(
     {
         key: "tags-bucket",
-        default:[""]
+        default:[]
     }
 );
 
@@ -19,6 +19,13 @@ const commitsFilterState = atom(
     }
 );
 
+
+const navBarState = atom(
+    {
+        key: "nav-bar-state",
+        default: { "search":"active", "add":""}
+    }
+);
 
 const filteredCommitsState = selector(
     {
@@ -41,4 +48,4 @@ function tagsExistInFilterArray(filterArray, commitArrayWithTags){
 
 
 
-export {commitStateBucket, tagsStateBucket, commitsFilterState, filteredCommitsState};
+export {commitStateBucket, tagsStateBucket, commitsFilterState, filteredCommitsState, navBarState};

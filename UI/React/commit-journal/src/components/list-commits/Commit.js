@@ -28,22 +28,56 @@ const  Commit = ({element,setShowEdit}) => {
     }
 
 
-    return (
-        <div className="commit-card" key={element.id}>
-            <div className="commit-card-left">
-                <label className="commit-card-commit-id">Commit id: {element.commitId}</label>
-                <label className="commit-card-memo-tags">{element.tags.map((el)=>{return <Tag key={el.id} tagname={el.id}/>})}</label>
-            </div>
+    return (<div className='card mb-3 pe-3' >
+        <div className="container m-2" key={element.id}>
+            <div className="row">
+                <div className='col-2'>
+                    <div className="container">
+                        <div className='row'>
+                            <label className="badge my-custom-color ">id: {element.commitId}</label>
+                        </div>
+                       
 
-            <div className="commit-card-right">
-            <label className="commit-card-description">Description: {element.description}</label>
-            </div>
-            <div className='commit-card-buttons'>
-                <button type='submit'>Follow URL</button>
-                <button type='submit' value={element.commitId} onClick={handleEdit}>Edit (Not implemented)</button>
-                <button onClick={handleDeleteClick} type='submit' value={element.commitId}>Delete</button>
+                        <div className='row '>
+                                <div className='col '>
+                            
+                          
+                                    {element.tags.map((el)=>{return <Tag key={el.id} tagname={el.id}/>})}
+                                    </div>
+                           
+                        </div>
+                    </div>    
+                </div>
+                <div className='col'>
+                    <div className='row mb-1'>
+                            <label className="badge bg-secondary">repo: {element.repoId}</label>
+                    </div>
+                    <div className='card'>
+                        <div className="card-header card-header-sm">Description</div>
+                        <div className="card-body">
+                            <p className="card-text">{element.description}</p>
+                        </div>
+                    </div>
+                </div>
+                <div className='col-2 '>
+                    <div className="container">
+                        <div className='row '>
+                            <button type='submit' className='btn btn-light btn-sm m-1 border border-secondary'>Follow URL</button>
+                        </div>
+                        <div className='row'>
+                            <button type='submit' className='btn btn-light btn-sm m-1 border border-secondary' value={element.commitId} onClick={handleEdit}>Edit</button>
+                        </div>
+                        <div className='row'>
+                            <button onClick={handleDeleteClick} className='btn btn-light btn-sm m-1 border border-secondary' type='submit' value={element.commitId}>Delete</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        </div>
+
+            
+           
 
     );
 }
