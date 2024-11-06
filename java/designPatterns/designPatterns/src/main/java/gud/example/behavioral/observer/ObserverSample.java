@@ -1,6 +1,16 @@
 package gud.example.behavioral.observer;
 
 /*
+Chain of Responsibility, Command, Mediator, and Observer, address how you can decouple senders and receivers, but with different trade-offs.
+- Chain of Responsibility passes a sender request along a chain of potential receivers.
+- Command normally specifies a sender-receiver connection with a subclass.
+- Mediator has senders and receivers reference each other indirectly.
+- Observer defines a very decoupled interface that allows for multiple receivers to be configured at run-time.
+
+ */
+
+
+/*
 Observer design pattern
 
     Model the "independent" functionality with a "subject" abstraction
