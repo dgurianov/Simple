@@ -1,4 +1,4 @@
-package gud.example.behavioral.observer;
+package gud.example.behavioral.sendersreceivers.observer;
 
 import java.util.ArrayList;
 import java.util.List;

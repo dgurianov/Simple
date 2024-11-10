@@ -10,15 +10,13 @@ public class SingletonScratch {
 
 
 class MoneyConverter{
-    private MoneyConverter() {
-    }
+    private MoneyConverter() {}
 
     private static class Holder{
-        private static final MoneyConverter INSTANCE = new MoneyConverter();
+        private static final MoneyConverter INST = new MoneyConverter();
     }
 
-
-    public static MoneyConverter getInstance(){
-        return Holder.INSTANCE;
-    };
+    public static MoneyConverter getInstance() {
+        return Holder.INST;
+    }
 }

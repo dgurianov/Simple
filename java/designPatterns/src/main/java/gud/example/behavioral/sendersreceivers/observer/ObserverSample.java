@@ -1,4 +1,4 @@
-package gud.example.behavioral.observer;
+package gud.example.behavioral.sendersreceivers.observer;
 
 /*
 Chain of Responsibility, Command, Mediator, and Observer, address how you can decouple senders and receivers, but with different trade-offs.

@@ -1,4 +1,4 @@
-package gud.example.behavioral.mediator;
+package gud.example.behavioral.sendersreceivers.mediator;
 
 import java.util.HashMap;
 import java.util.Map;

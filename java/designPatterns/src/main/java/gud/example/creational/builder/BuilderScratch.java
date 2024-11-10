@@ -6,40 +6,40 @@ package gud.example.creational.builder;
 public class BuilderScratch {
     public static void main(String[] args) {
         Salad carotSalad = new Salad.Builder("carrot").build();
-        Salad tomatoPotato = new Salad.Builder("tomato").withIngridientTwo("potato").build();
+        Salad tomatoPotato = new Salad.Builder("tomato").withNewOptionalIngridient("potato").build();
 
     }
 }
 
 
 class Salad{
-    private final String ingridientOneMandatory;
-    private final String ingridientTwo;
 
-    public static class Builder{
-        private final String ingridientOneMandatory;
-        private String ingridientTwo = "green leaves";
+    private final String ingridientMandatory;
+    private final String ingridientOPtionalWithDefault;
 
+    public static class Builder {
+        private final String ingridientMandatory;
+        private String ingridientOPtionalWithDefault = "greenLeaves";
 
-        public Builder(String ingridientOneMandatory) {
-            this.ingridientOneMandatory = ingridientOneMandatory;
+        public Builder(String ingridientMandatory) {
+            this.ingridientMandatory = ingridientMandatory;
         }
 
-        public Builder withIngridientTwo(String newIngridient){
-            this.ingridientTwo = newIngridient;
+        public Builder withNewOptionalIngridient(String newOptionalIngridient){
+            this.ingridientOPtionalWithDefault = newOptionalIngridient;
             return this;
         }
+
 
         public Salad build(){
             return new Salad(this);
         }
 
-
     }
 
 
     private Salad(Builder b) {
-        this.ingridientOneMandatory = b.ingridientOneMandatory;
-        this.ingridientTwo = b.ingridientTwo;
+        this.ingridientMandatory = b.ingridientMandatory;
+        this.ingridientOPtionalWithDefault = b.ingridientOPtionalWithDefault;
     }
 }

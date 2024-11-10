@@ -1,4 +1,4 @@
-package gud.example.behavioral.chainofresponsibility;
+package gud.example.behavioral.sendersreceivers.chainofresponsibility;
 
 public class CookChainOfResponsibilitySample {
 }

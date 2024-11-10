@@ -4,59 +4,53 @@ import gud.example.datastructures.core.stack.ArrayStack;
 
 public class AbstractFactoryScratch {
     public static void main(String[] args) {
-SynthAbstractFactory yf  = SynthAbstractFactory.getFactoryWithDefaultRoland(SynthTypes.YAMAHA);
-    yf.createSynth();
+        AbstractSynthFactory sf = AbstractSynthFactory.getFactoryBySynthTypeWithDefaultRoland(SynthType.YAMAHA);
+        sf.createSynth();
 
 
     }
 }
 
+interface Synth{};
 
-abstract class Synth{
-   private int keys;
-}
+class Yamaha implements Synth{};
+class Roland implements Synth{};
 
-class Yamaha extends Synth{}
-class Roland extends Synth{}
+enum SynthType{ROLAND,YAMAHA}
 
-enum SynthTypes{ROLAND, YAMAHA}
 
-abstract class SynthAbstractFactory{
-    private static final SynthAbstractFactory YAMA_FACTORY = new YamaFactory();
-    private static final SynthAbstractFactory ROLNAD_FACTORY = new RolandFactory();
+abstract class AbstractSynthFactory{
+    private static final AbstractSynthFactory YAMAHA_FACTORY = new YamahaSynthFactory();
+    private static final AbstractSynthFactory ROLAND_FACTORY = new RolandSynthFactory();
 
-    static SynthAbstractFactory getFactoryWithDefaultRoland(SynthTypes type){
+
+    public static AbstractSynthFactory getFactoryBySynthTypeWithDefaultRoland(SynthType type){
         switch (type){
-            case YAMAHA : return YAMA_FACTORY;
-            default: return ROLNAD_FACTORY;
-
+            case YAMAHA : return YAMAHA_FACTORY;
+            default: return ROLAND_FACTORY;
         }
     }
 
-   public abstract Synth createSynth();
 
+    public abstract Synth createSynth();
 }
 
 
-
-
-
-class YamaFactory extends SynthAbstractFactory{
+class RolandSynthFactory extends AbstractSynthFactory{
 
     @Override
     public Synth createSynth() {
-        System.out.println("Created Yama");
+        return new Roland();
+    }
+}
+
+
+class YamahaSynthFactory extends AbstractSynthFactory{
+
+    @Override
+    public Synth createSynth() {
         return new Yamaha();
     }
 }
 
 
-
-class RolandFactory extends SynthAbstractFactory{
-
-    @Override
-    public Synth createSynth() {
-        System.out.println("Created Roland");
-        return new Roland();
-    }
-}

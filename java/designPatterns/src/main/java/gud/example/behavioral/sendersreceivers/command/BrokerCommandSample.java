@@ -1,4 +1,4 @@
-package gud.example.behavioral.command;
+package gud.example.behavioral.sendersreceivers.command;
 
 import java.util.ArrayList;
 import java.util.List;
