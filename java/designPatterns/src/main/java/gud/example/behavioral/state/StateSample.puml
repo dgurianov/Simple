@@ -1,0 +1,32 @@
+@startuml
+
+interface State{
+    +void doAction(Context context)
+}
+
+
+class StartState implements State{
+    +void doAction(Context context)
+}
+class StopState implements State{
+    +void doAction(Context context)
+}
+
+note bottom of StopState
+    Uses <b>context</b> var  to set self into
+    <b>state</b> field of
+    the <b>context</b> object
+end note
+
+class Context{
+    -State state
+    +State getState()
+    +void setState(State newState)
+}
+
+
+StartState  *--  Context
+StopState *-- Context
+
+
+@enduml
