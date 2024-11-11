@@ -1,15 +1,15 @@
 @startuml
 
 interface State{
-    +void doAction(Context context)
+    +doAction(Context context): void
 }
 
 
 class StartState implements State{
-    +void doAction(Context context)
+    +doAction(Context context) : void
 }
 class StopState implements State{
-    +void doAction(Context context)
+    +doAction(Context context): void
 }
 
 note bottom of StopState
@@ -19,9 +19,9 @@ note bottom of StopState
 end note
 
 class Context{
-    -State state
-    +State getState()
-    +void setState(State newState)
+    -state : State
+    +getState(): State
+    +setState(State newState) : void
 }
 
 
