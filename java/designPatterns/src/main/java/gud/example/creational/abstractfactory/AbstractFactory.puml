@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+interface Product
+
+class ProductAImplementation <<Product>> implements Product
+class ProductBImplementation <<Product>> implements Product
+
+enum ProductType{
+PROD_A
+PROD_B
+}
+
+abstract class AbstractFactory{
+-{static} FACTORY_PRODUCT_A : AbstractFactory
+-{static} FACTORY_PRODUCT_B : AbstractFactory
++{static} getFactoryByProductTypeWithDefault(ProductType type) : AbstractFactory
++{abstract}createProduct() : Product
+}
+
+class ProductAFactory <<AbstractFactory>> extends AbstractFactory{
+    +createProduct() : Product
+}
+class ProductBFactory <<AbstractFactory>> extends AbstractFactory{
+    +createProduct() : Product
+}
+
+
+AbstractFactory *-- ProductType
+ProductAFactory *-- ProductAImplementation
+ProductBFactory *-- ProductBImplementation
+
+@enduml
