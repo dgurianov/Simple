@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface MusicInstrument{
++doSound(): void
++copy(): MusicInstrument
+}
+
+class Guitar <<MusicInstrument>> implements MusicInstrument{
++doSound(): void
+}
+
+class Piano  <<MusicInstrument>> implements MusicInstrument{
++doSound(): void
+}
+
+class InstrumentCache{
+    -cache: HashMap<String,MusicInstrument>
+    -warmup(): void
+    +getCopyInstrumentById(id: String) : MusicInstrument
+}
+
+InstrumentCache *-- Guitar : uses
+InstrumentCache *-- Piano :uses
+@enduml
