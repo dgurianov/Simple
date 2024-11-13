@@ -1,56 +1,58 @@
 package gud.example.behavioral.strategy;
 
 public class PaymentStrategySample {
+    public static void main(String[] args) {
 
-    //Common interface with common logic
-    interface PaymentStrategy {
-        void pay(int amount);
+    }
+}
 
-        //Common logic goes to interface
-        boolean validatePaymentDetails();
+//Common interface with common logic
+interface PaymentStrategy {
+    void pay(int amount);
+
+    //Common logic goes to interface
+    boolean validatePaymentDetails();
+}
+
+class PaymentWithCreditCard implements PaymentStrategy {
+
+    @Override
+    public void pay(int amount) {
+        System.out.println("Paying by cc");
     }
 
-    class PaymentByCreditCard implements PaymentStrategy {
+    @Override
+    public boolean validatePaymentDetails() {
+        System.out.println("Validating");
+        return true;
+    }
+}
 
-        @Override
-        public void pay(int amount) {
-            System.out.println("Paying by cc");
-        }
+class PaymentWithPayPal implements PaymentStrategy {
 
-        @Override
-        public boolean validatePaymentDetails() {
-            System.out.println("Validating");
-            return true;
-        }
+    @Override
+    public void pay(int amount) {
+        System.out.println("Paying by paypal");
     }
 
-    class PayByPayPal implements PaymentStrategy {
+    @Override
+    public boolean validatePaymentDetails() {
+        System.out.println("Validating");
+        return true;
+    }
+}
 
-        @Override
-        public void pay(int amount) {
-            System.out.println("Paying by paypal");
-        }
+class PaymentService {
+    private int cost;
+    //Service has no visibility of strategies , cause common interface hides them
+    //Strategies might be changed or added without changing the service
+    private PaymentStrategy strategy;
 
-        @Override
-        public boolean validatePaymentDetails() {
-            System.out.println("Validating");
-            return true;
+    public void processOrder() {
+        if (strategy.validatePaymentDetails()) {
+            strategy.pay(cost);
         }
     }
-
-    class PaymentService {
-        private int cost;
-        //Service has no visibility of strategies , cause common interface hides them
-        //Strategies might be changed or added without changing the service
-        private PaymentStrategy strategy;
-
-        public void processOrder() {
-            if (strategy.validatePaymentDetails()) {
-                strategy.pay(cost);
-            }
-        }
-    }
-
 }
 
 
