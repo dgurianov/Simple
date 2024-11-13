@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class MoveContext{
+-moveStrategy: MovetoDistanceStrategy
+}
+
+interface MovetoDistanceStrategy{
+ execute() : void
+}
+
+class CannonShot implements MovetoDistanceStrategy{
+execute():void
+}
+
+class TakeACab implements MovetoDistanceStrategy{
+execute() : void
+}
+
+MoveContext *-- MovetoDistanceStrategy
+
+
+@enduml
