@@ -1,6 +1,14 @@
 package gud.example.behavioral.visitor;
 
 public class StudentVisitor {
+    public static void main(String[] args) {
+        TeacherVisitor teacher = new MathTeacher();
+        Student mStudent = new MathStudent();
+        Student swStudent = new SwimmingStudent();
+
+        mStudent.accept(teacher);
+        swStudent.accept(teacher);
+    }
 
 }
 
