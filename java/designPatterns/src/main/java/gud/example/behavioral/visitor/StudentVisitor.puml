@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Student{
+#accept(TeacherVisitor t) : void
+}
+
+class MathStudent <<Student>> implements Student{
+#accept(TeacherVisitor t) : void
+}
+
+
+class LiteratureStudent <<Student>> implements Student{
+#accept(TeacherVisitor t) : void
+}
+
+interface TeacherVisitor{
+ #check(MathStudent st):void
+ #check(LiteratureStudent st):void
+}
+
+class MathTeacher <<TeacherVisitor>> implements TeacherVisitor{
+    #check(MathStudent st):void
+    #check(LiteratureStudent st):void
+}
+
+MathStudent -- TeacherVisitor : uses
+LiteratureStudent -- TeacherVisitor: uses
+
+@enduml
