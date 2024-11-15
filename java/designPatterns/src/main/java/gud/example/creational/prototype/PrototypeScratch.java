@@ -36,7 +36,7 @@ class PassangersCar implements Car{
     }
 
     @Override
-    public void doDriveSound() { System.out.println("I`m passangers car with {}".formatted(this.numberOfPassangers)); }
+    public void doDriveSound() { System.out.println("I`m passangers car with %s".formatted(this.numberOfPassangers)); }
 
     @Override
     public Car copy() { return new PassangersCar(this.numberOfPassangers); }
